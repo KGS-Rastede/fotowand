@@ -43,3 +43,41 @@ with os.scandir("fotos") as it:
 
 
 print(kuerzel) # zum Sicherstellen kurz ausgeben, ob alle Dateien ausgelesen wurden
+
+# for k in kuerzel:
+#     print(type(k))
+
+reihen, spalten = (4, 24) 
+  
+# method 2a 
+# arr = [[0]*spalten]*reihen 
+
+
+# Zum Testen eine 6x4 Matrize, muessen am Ende aber 24x4 sein
+matritze = [
+
+[[],[],[],[],[],[]],
+[[],[],[],[],[],[]],
+[[],[],[],[],[],[]],
+[[],[],[],[],[],[]]
+
+]
+
+# sollen am Ende 4 und 24 sein
+anzahl_reihen = 4
+anzahl_spalten = 6
+
+aktuelle_reihe = 0
+aktuelle_spalte = 0
+for k in kuerzel:
+    print("Setze Reihe und Spalte:", aktuelle_reihe, aktuelle_spalte, k)
+    matritze[aktuelle_reihe][aktuelle_spalte] = k
+
+
+    if aktuelle_spalte < anzahl_spalten-1:
+        aktuelle_spalte = aktuelle_spalte+1 # naechste Spalte, gleiche Zeile
+    else:
+        aktuelle_spalte = 0
+        aktuelle_reihe = aktuelle_reihe +1 #gehe in die naechste Reihe
+
+print(matritze)
