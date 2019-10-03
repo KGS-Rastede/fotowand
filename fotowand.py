@@ -55,43 +55,50 @@ def lese_kuerzel_ein():
                 kuerzel.append(entry.name.split(".")[0])
 
 
+def erzeuge_matrize():  
+    # Zum Testen eine 12x4 Matrize, muessen am Ende aber 24x4 sein
+    matritze = [
+
+    [[],[],[],[],[],[],[],[],[],[],[],[]],
+    [[],[],[],[],[],[],[],[],[],[],[],[]],
+    [[],[],[],[],[],[],[],[],[],[],[],[]],
+    [[],[],[],[],[],[],[],[],[],[],[],[]]
+
+    ]
+
+    # sollen am Ende 4 und 24 sein
+    anzahl_reihen = 4
+    anzahl_spalten = 12
+
+    aktuelle_reihe = 0
+    aktuelle_spalte = 0
+    for k in kuerzel:
+        print("Setze Reihe und Spalte:", aktuelle_reihe, aktuelle_spalte, k)
+        matritze[aktuelle_reihe][aktuelle_spalte] = k
+
+
+        if aktuelle_spalte < anzahl_spalten-1:
+            aktuelle_spalte += 1 # naechste Spalte, gleiche Zeile
+        else:
+            aktuelle_spalte = 0
+            aktuelle_reihe += 1 #gehe in die naechste Reihe
+
+    for x in matritze:
+        print(x)
+        print("\n")
+
+    return matritze
+
 
 lese_kuerzel_ein()
 erzeuge_pdf()
 
+m = erzeuge_matrize()
 
 
-print(kuerzel) # zum Sicherstellen kurz ausgeben, ob alle Dateien ausgelesen wurden
 
-reihen, spalten = (4, 24) 
+
+
+# print(kuerzel) # zum Sicherstellen kurz ausgeben, ob alle Dateien ausgelesen wurden
+
   
-# Zum Testen eine 12x4 Matrize, muessen am Ende aber 24x4 sein
-matritze = [
-
-[[],[],[],[],[],[],[],[],[],[],[],[]],
-[[],[],[],[],[],[],[],[],[],[],[],[]],
-[[],[],[],[],[],[],[],[],[],[],[],[]],
-[[],[],[],[],[],[],[],[],[],[],[],[]]
-
-]
-
-# sollen am Ende 4 und 24 sein
-anzahl_reihen = 4
-anzahl_spalten = 12
-
-aktuelle_reihe = 0
-aktuelle_spalte = 0
-for k in kuerzel:
-    print("Setze Reihe und Spalte:", aktuelle_reihe, aktuelle_spalte, k)
-    matritze[aktuelle_reihe][aktuelle_spalte] = k
-
-
-    if aktuelle_spalte < anzahl_spalten-1:
-        aktuelle_spalte += 1 # naechste Spalte, gleiche Zeile
-    else:
-        aktuelle_spalte = 0
-        aktuelle_reihe += 1 #gehe in die naechste Reihe
-
-for x in matritze:
-    print(x)
-    print("\n")
