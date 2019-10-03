@@ -87,10 +87,10 @@ for k in kuerzel:
 
 
     if aktuelle_spalte < anzahl_spalten-1:
-        aktuelle_spalte = aktuelle_spalte+1 # naechste Spalte, gleiche Zeile
+        aktuelle_spalte += 1 # naechste Spalte, gleiche Zeile
     else:
         aktuelle_spalte = 0
-        aktuelle_reihe = aktuelle_reihe +1 #gehe in die naechste Reihe
+        aktuelle_reihe += 1 #gehe in die naechste Reihe
 
 for x in matritze:
     print(x)
