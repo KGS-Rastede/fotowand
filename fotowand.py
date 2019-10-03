@@ -105,15 +105,22 @@ def generiere_einzelseiten(matritze):
 
     print("Drucke die erste Matritze:")
 
+
     m1.append(matritze[0][0:6])
     m1.append(matritze[1][0:6])
     m1.append(matritze[2][0:6])
     m1.append(matritze[3][0:6])
 
-    print(m1)
-    # m1[1]= matritze[0][0:6]
-    # m1[2]= matritze[0][0:6] 
-    # m1[3]= matritze[0][0:6]
+    debug_matritze(m1)
+
+    print("Drucke die zweite Matritze:")
+
+    m2.append(matritze[0][6:12])
+    m2.append(matritze[1][6:12])
+    m2.append(matritze[2][6:12])
+    m2.append(matritze[3][6:12])
+
+    debug_matritze(m2)
 
 
 lese_kuerzel_ein()
