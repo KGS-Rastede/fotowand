@@ -33,39 +33,39 @@ from fpdf import FPDF
 
 
 
-
- 
-# L = Landscape, P = Portrait
-pdf = FPDF(orientation='L', unit='mm', format='A4')
-pdf.add_page()
-pdf.set_font("Arial", size=12)
-pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
-pdf.output("fotowand.pdf")
-
 kuerzel = [] #hier sind alle (bis zu 192) Kuerzel drin.
 
-#Praktischerweise sortiert das Dateisystem die Dateinamen
-#automatisch, so dass wir hier an der Reihenfolge
-#nichts mehr aendern muessen.
-with os.scandir("fotos") as it:
-    for entry in it:
-        if not entry.name.startswith('.') and entry.is_file():
-            #print(entry.name.split(".")[0])
-            kuerzel.append(entry.name.split(".")[0])
+
+def erzeuge_pdf():
+    # L = Landscape, P = Portrait
+    pdf = FPDF(orientation='L', unit='mm', format='A4')
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
+    pdf.output("fotowand.pdf")
+
+def lese_kuerzel_ein():
+    #Praktischerweise sortiert das Dateisystem die Dateinamen
+    #automatisch, so dass wir hier an der Reihenfolge
+    #nichts mehr aendern muessen.
+    with os.scandir("fotos") as it:
+        for entry in it:
+            if not entry.name.startswith('.') and entry.is_file():
+                #print(entry.name.split(".")[0])
+                kuerzel.append(entry.name.split(".")[0])
+
+
+
+lese_kuerzel_ein()
+erzeuge_pdf()
+
 
 
 print(kuerzel) # zum Sicherstellen kurz ausgeben, ob alle Dateien ausgelesen wurden
 
-# for k in kuerzel:
-#     print(type(k))
-
 reihen, spalten = (4, 24) 
   
-# method 2a 
-# arr = [[0]*spalten]*reihen 
-
-
-# Zum Testen eine 6x4 Matrize, muessen am Ende aber 24x4 sein
+# Zum Testen eine 12x4 Matrize, muessen am Ende aber 24x4 sein
 matritze = [
 
 [[],[],[],[],[],[],[],[],[],[],[],[]],
