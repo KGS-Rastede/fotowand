@@ -83,11 +83,14 @@ def erzeuge_matrize():
             aktuelle_spalte = 0
             aktuelle_reihe += 1 #gehe in die naechste Reihe
 
+    debug_matritze(matritze)
+
+    return matritze
+
+def debug_matritze(matritze):
     for x in matritze:
         print(x)
         print("\n")
-
-    return matritze
 
 def generiere_einzelseiten(matritze):
     # zuenachst programmiert fuer die Testmatrize
