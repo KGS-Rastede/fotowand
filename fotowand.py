@@ -56,16 +56,16 @@ reihen, spalten = (4, 24)
 # Zum Testen eine 6x4 Matrize, muessen am Ende aber 24x4 sein
 matritze = [
 
-[[],[],[],[],[],[]],
-[[],[],[],[],[],[]],
-[[],[],[],[],[],[]],
-[[],[],[],[],[],[]]
+[[],[],[],[],[],[],[],[],[],[],[],[]],
+[[],[],[],[],[],[],[],[],[],[],[],[]],
+[[],[],[],[],[],[],[],[],[],[],[],[]],
+[[],[],[],[],[],[],[],[],[],[],[],[]]
 
 ]
 
 # sollen am Ende 4 und 24 sein
 anzahl_reihen = 4
-anzahl_spalten = 6
+anzahl_spalten = 12
 
 aktuelle_reihe = 0
 aktuelle_spalte = 0
@@ -80,4 +80,6 @@ for k in kuerzel:
         aktuelle_spalte = 0
         aktuelle_reihe = aktuelle_reihe +1 #gehe in die naechste Reihe
 
-print(matritze)
+for x in matritze:
+    print(x)
+    print("\n")
