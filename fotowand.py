@@ -16,7 +16,12 @@ Das erste Bild mit ist also oben links auf der ersten Seite und das letzte Bild
 ist ganz unten rechts auf der letzen Seite.
 """
  
+import os
 from fpdf import FPDF
+
+
+
+
  
 # L = Landscape, P = Portrait
 pdf = FPDF(orientation='L', unit='mm', format='A4')
@@ -25,3 +30,12 @@ pdf.set_font("Arial", size=12)
 pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
 pdf.output("fotowand.pdf")
 
+kuerzel = [] #hier sind alle (bis zu 192) Kuerzel drin.
+
+with os.scandir("fotos") as it:
+    for entry in it:
+        if not entry.name.startswith('.') and entry.is_file():
+            #print(entry.name.split(".")[0])
+            kuerzel.append(entry.name.split(".")[0])
+
+print(kuerzel) # zum Sicherstellen kurz ausgeben, ob alle Dateien ausgelesen wurden
