@@ -56,6 +56,10 @@ def lese_kuerzel_ein():
 
 
 def erzeuge_matrize():  
+    # sollen am Ende 4 und 24 sein
+    anzahl_reihen = 4
+    anzahl_spalten = 12
+
     # Zum Testen eine 12x4 Matrize, muessen am Ende aber 24x4 sein
     matritze = [
 
@@ -65,10 +69,6 @@ def erzeuge_matrize():
     [[],[],[],[],[],[],[],[],[],[],[],[]]
 
     ]
-
-    # sollen am Ende 4 und 24 sein
-    anzahl_reihen = 4
-    anzahl_spalten = 12
 
     aktuelle_reihe = 0
     aktuelle_spalte = 0
@@ -89,11 +89,32 @@ def erzeuge_matrize():
 
     return matritze
 
+def generiere_einzelseiten(matritze):
+    # zuenachst programmiert fuer die Testmatrize
+    # muss anschliessend verallgemeinert werden
+    m1 = [] # erste Seite, also Spalten 1-6
+    m2 = [] # zweite Seite, also Spalten 7-12
+    m3 = [] # dritte Seite, also Spalte 1-6, Zeilen 5-8
+    m4 = [] # vierte Seite, also Spalte 7-12, Zeilen 5-8
+
+    print("Drucke die erste Matritze:")
+
+    m1.append(matritze[0][0:6])
+    m1.append(matritze[1][0:6])
+    m1.append(matritze[2][0:6])
+    m1.append(matritze[3][0:6])
+
+    print(m1)
+    # m1[1]= matritze[0][0:6]
+    # m1[2]= matritze[0][0:6] 
+    # m1[3]= matritze[0][0:6]
+
 
 lese_kuerzel_ein()
 erzeuge_pdf()
 
 m = erzeuge_matrize()
+generiere_einzelseiten(m)
 
 
 
