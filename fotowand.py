@@ -106,27 +106,36 @@ def generiere_einzelseiten(matritze):
     # muss anschliessend verallgemeinert werden
     m1 = [] # erste Seite, also Spalten 1-6
     m2 = [] # zweite Seite, also Spalten 7-12
-    m3 = [] # dritte Seite, also Spalte 1-6, Zeilen 5-8
-    m4 = [] # vierte Seite, also Spalte 7-12, Zeilen 5-8
+    m3 = [] # erste Seite, also Spalten 13-18
+    m4 = [] # zweite Seite, also Spalten 19-24
+    
+
+    for zeile in range(0,4):
+        m1.append(matritze[zeile][0:6])
+
+    for zeile in range(0,4):
+        m2.append(matritze[zeile][6:12])        
+    
+    for zeile in range(0,4):
+        m3.append(matritze[zeile][12:18])
+
+    for zeile in range(0,4):
+        m4.append(matritze[zeile][18:24])        
+    
 
     print("Drucke die erste Matritze:")
-
-
-    m1.append(matritze[0][0:6])
-    m1.append(matritze[1][0:6])
-    m1.append(matritze[2][0:6])
-    m1.append(matritze[3][0:6])
-
     debug_matritze(m1)
 
+
     print("Drucke die zweite Matritze:")
-
-    m2.append(matritze[0][6:12])
-    m2.append(matritze[1][6:12])
-    m2.append(matritze[2][6:12])
-    m2.append(matritze[3][6:12])
-
     debug_matritze(m2)
+
+    print("Drucke die dritte Matritze:")
+    debug_matritze(m3)
+
+
+    print("Drucke die vierte Matritze:")
+    debug_matritze(m4)
 
 
 lese_kuerzel_ein()
