@@ -14,6 +14,18 @@ Die Idee dieser Datei ist es, eine Fotowand aus 192 Fotos zu erstellen. Dabei si
 
 Das erste Bild mit ist also oben links auf der ersten Seite und das letzte Bild
 ist ganz unten rechts auf der letzen Seite.
+
+
+Ein gute Anleitung fuer das Erstellen von PDF-Dateien mit Formen und so weiter
+ist hier zu finden
+https://technicalmasterblog.wordpress.com/2019/08/08/creating-pdfs-with-pyfpdf-and-python/
+
+So kann man zum Beispiel ein Rechteck mit
+
+  pdf.rect(20, 20, 100, 50)
+
+erstennen. 
+Und Bilder kann man mit self.image('Dateiname.jpg, 8, 33) einfuegen
 """
  
 import os
