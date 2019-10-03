@@ -87,6 +87,9 @@ def erzeuge_matrize():
 
     return matritze
 
+"""
+Diese Methode gibt einfach nur Zeilenweise eine Matritze aus
+"""
 def debug_matritze(matritze):
     for x in matritze:
         print(x)
