@@ -32,10 +32,14 @@ pdf.output("fotowand.pdf")
 
 kuerzel = [] #hier sind alle (bis zu 192) Kuerzel drin.
 
+#Praktischerweise sortiert das Dateisystem die Dateinamen
+#automatisch, so dass wir hier an der Reihenfolge
+#nichts mehr aendern muessen.
 with os.scandir("fotos") as it:
     for entry in it:
         if not entry.name.startswith('.') and entry.is_file():
             #print(entry.name.split(".")[0])
             kuerzel.append(entry.name.split(".")[0])
+
 
 print(kuerzel) # zum Sicherstellen kurz ausgeben, ob alle Dateien ausgelesen wurden
