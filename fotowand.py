@@ -106,8 +106,14 @@ def generiere_einzelseiten(matritze):
     # muss anschliessend verallgemeinert werden
     m1 = [] # erste Seite, also Spalten 1-6
     m2 = [] # zweite Seite, also Spalten 7-12
-    m3 = [] # erste Seite, also Spalten 13-18
-    m4 = [] # zweite Seite, also Spalten 19-24
+    m3 = [] # dritte Seite, also Spalten 13-18
+    m4 = [] # vierte Seite, also Spalten 19-24
+
+    # ab hier die untere Haelfte der Matrix
+    m5 = [] # fünfte Seite, also Spalten 1-6
+    m6 = [] # sechste Seite, also Spalten 7-12
+    m7 = [] # siebte Seite, also Spalten 13-18
+    m8 = [] # achte Seite, also Spalten 19-24
     
 
     for zeile in range(0,4):
