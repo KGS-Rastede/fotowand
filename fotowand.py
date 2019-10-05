@@ -88,7 +88,7 @@ def erzeuge_matrize():
     aktuelle_reihe = 0
     aktuelle_spalte = 0
     for k in kuerzel:
-        print("Setze Reihe und Spalte:", aktuelle_reihe, aktuelle_spalte, k)
+        # print("Setze Reihe und Spalte:", aktuelle_reihe, aktuelle_spalte, k)
         matritze[aktuelle_reihe][aktuelle_spalte] = k
 
 
@@ -161,13 +161,56 @@ def generiere_einzelseiten(matritze):
 Generiert aus der gegebeben 8x4 Matritze eine PDF-Datei
 """
 def generiere_einzelseiten_als_pdf( matritze ):
+    print("Generiere Einzelseite fuer:")
+    print("######################################")
     debug_matritze( matritze )
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
     # L = Landscape, P = Portrait
     pdf = FPDF(orientation='L', unit='mm', format='A4')
+
+    #531 x 708 Pixel haben die einzelnen Bilder (Ursache unklar, aber so passt der Druck)
+    #Fuer die ersten Probeversuche nehme ich mal ein Zehntel davon
+    breite = 53
+    hoehe = 78
+
     pdf.add_page()
     pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
+    # pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
+    pdf.set_line_width(1)
+    pdf.set_fill_color(0, 255, 0)
+    
+    x = 0
+    y = 0
+    for zeile in matritze:
+        print("Jetzt kommt eine Zeile")
+        print(zeile)
+
+        for zelle in zeile:
+            print("Jetzt kommt eine Zelle ---------: ", zelle)
+            
+            zellinhalt = zelle
+
+            # Wenn da nichts drin steht ist das Objekt an dieser
+            # Stelle vom Typ List und kein String. Fuer diesen
+            # Fall muss ich hier einen String setzen, sonst
+            # stuerzt die Software ab. So kann man ausserdem
+            # auch super Fehler finden :-)
+            if not isinstance( zellinhalt, str):
+                zellinhalt = "-FEHLER-"
+
+            # print("Jetzt der Zellinhalt")
+            # print(zelle)
+            #pdf.rect(x * 30, y*30, breite, hoehe)
+            pdf.cell(x * 30 +30, y, txt=zellinhalt, ln=1, align="C") # C: Center
+            x += 1
+
+            print( "Werte von x und y sind: ", zellinhalt, x, y)
+        y += 1
+        x = 0
+
+        
+
     pdf.output("fotowand.pdf")
 
 lese_texte_ein()
