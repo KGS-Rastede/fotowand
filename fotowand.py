@@ -75,9 +75,9 @@ stehen. In einer spaeteren Version kann man das vielleicht verallgemeinern,
 aber erstmal ist es fuer die konkrete Anforderung mit 192 Fotos programmiert.
 """
 def erzeuge_matrize():  
-    # sollen am Ende 4 und 24 sein
-    anzahl_reihen = 8
-    anzahl_spalten = 24
+    anzahl_spalten = 24 # idealerweise muss das nicht definiert werden
+                        # aber zunaechst codiere ich das alles fest, so dass
+                        # es auf jeden Fall erstmal passt
 
     # Eine manuell angelegte Matrix mit 24x8 Feldern. Das kann man
     # natürlich auch mit einer For-Schleife machen, aber so ist
@@ -180,7 +180,7 @@ def generiere_einzelseiten(matritze, bildtexte):
 """
 Generiert aus der gegebeben 8x4 Matritze eine PDF-Da, beschreibungen )
 """
-def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" , beschreibungen ):
+def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     print("Generiere Einzelseite fuer:")
     print("######################################")
     debug_matritze( matritze )
