@@ -143,7 +143,19 @@ def generiere_einzelseiten(matritze):
         m3.append(matritze[zeile][12:18])
 
     for zeile in range(0,4):
-        m4.append(matritze[zeile][18:24])        
+        m4.append(matritze[zeile][18:24])      
+        
+    for zeile in range(5,8):
+        m5.append(matritze[zeile][0:6])
+
+    for zeile in range(5,8):
+        m6.append(matritze[zeile][6:12])        
+    
+    for zeile in range(5,8):
+        m7.append(matritze[zeile][12:18])
+
+    for zeile in range(5,8):
+        m8.append(matritze[zeile][18:24])   
     
 
     print("Drucke die erste Matritze:")
@@ -157,6 +169,18 @@ def generiere_einzelseiten(matritze):
 
     print("Drucke die vierte Matritze:")
     debug_matritze(m4)
+
+    print("Drucke die fuenfte Matritze:")
+    debug_matritze(m5)
+
+    print("Drucke die sechste Matritze:")
+    debug_matritze(m6)
+
+    print("Drucke die siebte Matritze:")
+    debug_matritze(m7)
+
+    print("Drucke die achte Matritze:")
+    debug_matritze(m8)
 
 
 lese_texte_ein()
