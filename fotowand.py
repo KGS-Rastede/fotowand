@@ -186,6 +186,8 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     debug_matritze( matritze )
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
+    print(beschreibungen)
+
     # L = Landscape, P = Portrait
     pdf = FPDF(orientation='L', unit='mm', format='A4')
 
@@ -212,7 +214,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
         for zelle in zeile:
             # print("Jetzt kommt eine Zelle ---------: ", zelle)
             
-            zellinhalt = zelle
+            zellinhalt = ""
 
             # Wenn da nichts drin steht ist das Objekt an dieser
             # Stelle vom Typ List und kein String. Fuer diesen
@@ -221,6 +223,11 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
             # auch super Fehler finden :-)
             if not isinstance( zellinhalt, str):
                 zellinhalt = "-FEHLER-"
+            else:
+                # Warum auch immer geht das nicht... Wenn ich 
+                # speziell aa und bcv nehme geht es. Spaeter. Erstmal
+                # muss das mit den Bilden und dem Textlayout passen
+                zellinhalt = beschreibungen['aa']
 
             # print("Jetzt der Zellinhalt")
             # print(zelle)
@@ -232,12 +239,13 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 w = pdf.get_string_width(zellinhalt) + 6
                 # pdf.set_x((210 - w) / 2)
                 pdf.set_xy(x * 60, y * 40)
+                # pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
                 pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
                 
                 # ziemlicher Hack, aber funktioniert erstmal...
-                bild_pfad = "./fotos/" + zellinhalt + ".jpg"
+                # bild_pfad = "./fotos/" + zellinhalt + ".jpg"
 
-                pdf.image(bild_pfad, x=x*20, y=y * 20, w=100)
+                # pdf.image(bild_pfad, x=x*20, y=y * 20, w=100)
             
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
