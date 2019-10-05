@@ -125,7 +125,7 @@ Diese Methode erzeugt 8 Matritzen: m1 bis m8.
 Diese 8 haben jeweils 8x4 Zellen und entsprechen einer DIN-A4-
 Seite. Aus diesen einzelnen Seiten werden dann die PDF-Dateien generiert.
 """
-def generiere_einzelseiten(matritze):
+def generiere_einzelseiten(matritze, bildtexte):
     # zuenachst programmiert fuer die Testmatrize
     # muss anschliessend verallgemeinert werden
     m1 = [] # erste Seite, also Spalten 1-6
@@ -166,21 +166,21 @@ def generiere_einzelseiten(matritze):
     
     # Fuer diesen Code gibt es keinen Preis, aber in der ersten
     # Version funktioniert er erstmal...
-    generiere_einzelseiten_als_pdf( m1, "seite1.pdf" )
-    generiere_einzelseiten_als_pdf( m2, "seite2.pdf" )
-    generiere_einzelseiten_als_pdf( m3, "seite3.pdf" )
-    generiere_einzelseiten_als_pdf( m4, "seite4.pdf" )
-    generiere_einzelseiten_als_pdf( m5, "seite5.pdf" )
-    generiere_einzelseiten_als_pdf( m6, "seite6.pdf" )
-    generiere_einzelseiten_als_pdf( m7, "seite7.pdf" )
-    generiere_einzelseiten_als_pdf( m8, "seite8.pdf" )
+    generiere_einzelseiten_als_pdf( m1, "seite1.pdf", bildtexte )
+    generiere_einzelseiten_als_pdf( m2, "seite2.pdf", bildtexte )
+    generiere_einzelseiten_als_pdf( m3, "seite3.pdf", bildtexte )
+    generiere_einzelseiten_als_pdf( m4, "seite4.pdf", bildtexte )
+    generiere_einzelseiten_als_pdf( m5, "seite5.pdf", bildtexte )
+    generiere_einzelseiten_als_pdf( m6, "seite6.pdf", bildtexte )
+    generiere_einzelseiten_als_pdf( m7, "seite7.pdf", bildtexte )
+    generiere_einzelseiten_als_pdf( m8, "seite8.pdf", bildtexte )
 
 
 
 """
-Generiert aus der gegebeben 8x4 Matritze eine PDF-Datei
+Generiert aus der gegebeben 8x4 Matritze eine PDF-Da, beschreibungen )
 """
-def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" ):
+def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" , beschreibungen ):
     print("Generiere Einzelseite fuer:")
     print("######################################")
     debug_matritze( matritze )
@@ -226,17 +226,17 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" ):
             # print(zelle)
             #pdf.rect(x * 30, y*30, breite, hoehe)
 
-            #Breite des Textes berechnen
-            w = pdf.get_string_width(zellinhalt) + 6
-            # pdf.set_x((210 - w) / 2)
-            pdf.set_xy(x * 60, y * 40)
-            pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
-            
-            # ziemlicher Hack, aber funktioniert erstmal...
-            bild_pfad = "./fotos/" + zellinhalt + ".jpg"
-            
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt is not "-FEHLER-":
+                #Breite des Textes berechnen
+                w = pdf.get_string_width(zellinhalt) + 6
+                # pdf.set_x((210 - w) / 2)
+                pdf.set_xy(x * 60, y * 40)
+                pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
+                
+                # ziemlicher Hack, aber funktioniert erstmal...
+                bild_pfad = "./fotos/" + zellinhalt + ".jpg"
+
                 pdf.image(bild_pfad, x=x*20, y=y * 20, w=100)
             
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
@@ -259,7 +259,7 @@ bildbeschreibungen = lese_texte_ein()
 lese_kuerzel_ein()
 
 m = erzeuge_matrize()
-generiere_einzelseiten(m)
+generiere_einzelseiten(m, bildbeschreibungen)
 
 
 
