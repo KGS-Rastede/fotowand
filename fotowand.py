@@ -57,13 +57,20 @@ Der erste Teil der Zeile muss einem Dateinamen entsprechen, dass dahinter
 kann ein beliebiger Text sein.
 """
 def lese_texte_ein():
+    beschreibungen = {} # Ein Dictionary 
+                        # siehe auch hier:
+                        # https://docs.python.org/3/tutorial/datastructures.html
+
     with open('fotos/texte.csv') as csvfile:
         fototexte = csv.reader(csvfile, delimiter=',')
         for zeile in fototexte:
-            print(zeile[0],zeile[1])
+            # print(zeile[0],zeile[1])
+            beschreibungen[zeile[0]] = zeile[1]
+
+    return beschreibungen
 
 """
-Diese Methode erzeugt im speziellen Fall 8 Matritzen, die für 8 DIN-A4-Seiten
+Diese Methode erzeugt im speziellen Fall 8 Matffritzen, die für 8 DIN-A4-Seiten
 stehen. In einer spaeteren Version kann man das vielleicht verallgemeinern,
 aber erstmal ist es fuer die konkrete Anforderung mit 192 Fotos programmiert.
 """
@@ -247,7 +254,8 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" ):
     pdf.output( dateiname )
 
 
-lese_texte_ein()
+# Speichere alle Bildbeschreibungen in einem Dictionary
+bildbeschreibungen = lese_texte_ein()
 lese_kuerzel_ein()
 
 m = erzeuge_matrize()
