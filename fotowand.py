@@ -182,7 +182,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" ):
     # L = Landscape, P = Portrait
     pdf = FPDF(orientation='L', unit='mm', format='A4')
 
-    #531 x 708 Pixel haben die einzelnen Bilder (Ursache unklar, aber so passt der Druck)
+    # 531 x 708 Pixel haben die einzelnen Bilder (Ursache unklar, aber so passt der Druck)
     #Fuer die ersten Probeversuche nehme ich mal ein Zehntel davon
     breite = 53
     hoehe = 78
@@ -230,7 +230,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" ):
             
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt is not "-FEHLER-":
-                pdf.image(bild_pfad, x=x*60, y=y * 40, w=100)
+                pdf.image(bild_pfad, x=x*20, y=y * 20, w=100)
             
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
