@@ -24,7 +24,7 @@ So kann man zum Beispiel ein Rechteck mit
 
   pdf.rect(20, 20, 100, 50)
 
-erstennen. 
+erstellen. 
 Und Bilder kann man mit self.image('Dateiname.jpg, 8, 33) einfuegen
 """
  
@@ -182,6 +182,9 @@ def generiere_einzelseiten_als_pdf( matritze ):
     
     x = 0
     y = 0
+
+    # jetzt geht der Code Zeile fuer Zeile durch die Matritze und 
+    # innerhalb der Zeilen die einzelnen Zellen
     for zeile in matritze:
         print("Jetzt kommt eine Zeile")
         print(zeile)
@@ -203,18 +206,26 @@ def generiere_einzelseiten_als_pdf( matritze ):
             # print(zelle)
             #pdf.rect(x * 30, y*30, breite, hoehe)
 
-            #breite des Textes berechnen
+            #Breite des Textes berechnen
             w = pdf.get_string_width(zellinhalt) + 6
             # pdf.set_x((210 - w) / 2)
             pdf.set_xy(x * 60, y * 40)
             pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
             
+            # ziemlicher Hack, aber funktioniert erstmal...
             bild_pfad = "./fotos/" + zellinhalt + ".jpg"
+            
+            # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt is not "-FEHLER-":
                 pdf.image(bild_pfad, x=x*60, y=y * 40, w=100)
+            
+            # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
 
             print( "Werte von x und y sind: ", zellinhalt, x, y)
+        
+        # Nach jeder Zeile muss die x-Position wieder auf Anfang gesetzt werden
+        # y steht fuer die Zeile, dieser Wert muss um 1 erhoeht werden
         y += 1
         x = 0
 
