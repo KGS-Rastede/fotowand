@@ -29,6 +29,8 @@ Und Bilder kann man mit self.image('Dateiname.jpg, 8, 33) einfuegen
 """
  
 import os
+import csv
+
 from fpdf import FPDF
 
 
@@ -54,6 +56,16 @@ def lese_kuerzel_ein():
                 #print(entry.name.split(".")[0])
                 kuerzel.append(entry.name.split(".")[0])
 
+"""
+In dieser Methode werden die Texte aus der .csv-Datei eingelesen.
+Der erste Teil der Zeile muss einem Dateinamen entsprechen, dass dahinter
+kann ein beliebiger Text sein.
+"""
+def lese_texte_ein():
+    with open('fotos/texte.csv') as csvfile:
+        fototexte = csv.reader(csvfile, delimiter=',')
+        for zeile in fototexte:
+            print(zeile[0],zeile[1])
 
 def erzeuge_matrize():  
     # sollen am Ende 4 und 24 sein
@@ -144,6 +156,7 @@ def generiere_einzelseiten(matritze):
     debug_matritze(m4)
 
 
+lese_texte_ein()
 lese_kuerzel_ein()
 erzeuge_pdf()
 
