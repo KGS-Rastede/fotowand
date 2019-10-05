@@ -187,7 +187,7 @@ def generiere_einzelseiten_als_pdf( matritze ):
         print(zeile)
 
         for zelle in zeile:
-            print("Jetzt kommt eine Zelle ---------: ", zelle)
+            # print("Jetzt kommt eine Zelle ---------: ", zelle)
             
             zellinhalt = zelle
 
@@ -202,7 +202,12 @@ def generiere_einzelseiten_als_pdf( matritze ):
             # print("Jetzt der Zellinhalt")
             # print(zelle)
             #pdf.rect(x * 30, y*30, breite, hoehe)
-            pdf.cell(x * 30 +30, y, txt=zellinhalt, ln=1, align="C") # C: Center
+
+            #breite des Textes berechnen
+            w = pdf.get_string_width(zellinhalt) + 6
+            # pdf.set_x((210 - w) / 2)
+            pdf.set_xy(x * 60, y * 40)
+            pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
             x += 1
 
             print( "Werte von x und y sind: ", zellinhalt, x, y)
