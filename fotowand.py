@@ -67,6 +67,11 @@ def lese_texte_ein():
         for zeile in fototexte:
             print(zeile[0],zeile[1])
 
+"""
+Diese Methode erzeugt im speziellen Fall 8 Matritzen, die für 8 DIN-A4-Seiten
+stehen. In einer spaeteren Version kann man das vielleicht verallgemeinern,
+aber erstmal ist es fuer die konkrete Anforderung mit 192 Fotos programmiert.
+"""
 def erzeuge_matrize():  
     # sollen am Ende 4 und 24 sein
     anzahl_reihen = 8
@@ -144,13 +149,11 @@ def generiere_einzelseiten(matritze):
     print("Drucke die erste Matritze:")
     debug_matritze(m1)
 
-
     print("Drucke die zweite Matritze:")
     debug_matritze(m2)
 
     print("Drucke die dritte Matritze:")
     debug_matritze(m3)
-
 
     print("Drucke die vierte Matritze:")
     debug_matritze(m4)
