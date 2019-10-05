@@ -208,6 +208,10 @@ def generiere_einzelseiten_als_pdf( matritze ):
             # pdf.set_x((210 - w) / 2)
             pdf.set_xy(x * 60, y * 40)
             pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
+            
+            bild_pfad = "./fotos/" + zellinhalt + ".jpg"
+            if zellinhalt is not "-FEHLER-":
+                pdf.image(bild_pfad, x=x*60, y=y * 40, w=100)
             x += 1
 
             print( "Werte von x und y sind: ", zellinhalt, x, y)
