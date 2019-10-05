@@ -38,14 +38,6 @@ from fpdf import FPDF
 kuerzel = [] #hier sind alle (bis zu 192) Kuerzel drin.
 
 
-def erzeuge_pdf():
-    # L = Landscape, P = Portrait
-    pdf = FPDF(orientation='L', unit='mm', format='A4')
-    pdf.add_page()
-    pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
-    pdf.output("fotowand.pdf")
-
 def lese_kuerzel_ein():
     #Praktischerweise sortiert das Dateisystem die Dateinamen
     #automatisch, so dass wir hier an der Reihenfolge
@@ -118,6 +110,11 @@ def debug_matritze(matritze):
         print(x)
         print("\n")
 
+"""
+Diese Methode erzeugt 8 Matritzen: m1 bis m8. 
+Diese 8 haben jeweils 8x4 Zellen und entsprechen einer DIN-A4-
+Seite. Aus diesen einzelnen Seiten werden dann die PDF-Dateien generiert.
+"""
 def generiere_einzelseiten(matritze):
     # zuenachst programmiert fuer die Testmatrize
     # muss anschliessend verallgemeinert werden
@@ -157,35 +154,24 @@ def generiere_einzelseiten(matritze):
     for zeile in range(5,8):
         m8.append(matritze[zeile][18:24])   
     
+    generiere_einzelseiten_als_pdf( m1 )
 
-    print("Drucke die erste Matritze:")
-    debug_matritze(m1)
 
-    print("Drucke die zweite Matritze:")
-    debug_matritze(m2)
+"""
+Generiert aus der gegebeben 8x4 Matritze eine PDF-Datei
+"""
+def generiere_einzelseiten_als_pdf( matritze ):
+    debug_matritze( matritze )
 
-    print("Drucke die dritte Matritze:")
-    debug_matritze(m3)
-
-    print("Drucke die vierte Matritze:")
-    debug_matritze(m4)
-
-    print("Drucke die fuenfte Matritze:")
-    debug_matritze(m5)
-
-    print("Drucke die sechste Matritze:")
-    debug_matritze(m6)
-
-    print("Drucke die siebte Matritze:")
-    debug_matritze(m7)
-
-    print("Drucke die achte Matritze:")
-    debug_matritze(m8)
-
+    # L = Landscape, P = Portrait
+    pdf = FPDF(orientation='L', unit='mm', format='A4')
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
+    pdf.output("fotowand.pdf")
 
 lese_texte_ein()
 lese_kuerzel_ein()
-erzeuge_pdf()
 
 m = erzeuge_matrize()
 generiere_einzelseiten(m)
