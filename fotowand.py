@@ -44,9 +44,12 @@ def lese_kuerzel_ein():
     #nichts mehr aendern muessen.
     with os.scandir("fotos") as it:
         for entry in it:
-            if not entry.name.startswith('.') and entry.is_file():
+            # if not entry.name.startswith('.') and entry.is_file():
+            if entry.name.endswith('.jpg') and entry.is_file():
                 #print(entry.name.split(".")[0])
-                kuerzel.append(entry.name.split(".")[0])
+                dateiname = entry.name.split(".")[0]
+                if not dateiname == "texte":
+                    kuerzel.append( dateiname )     
 
 """
 In dieser Methode werden die Texte aus der .csv-Datei eingelesen.
