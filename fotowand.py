@@ -157,13 +157,23 @@ def generiere_einzelseiten(matritze):
     for zeile in range(5,8):
         m8.append(matritze[zeile][18:24])   
     
-    generiere_einzelseiten_als_pdf( m1 )
+    # Fuer diesen Code gibt es keinen Preis, aber in der ersten
+    # Version funktioniert er erstmal...
+    generiere_einzelseiten_als_pdf( m1, "seite1.pdf" )
+    generiere_einzelseiten_als_pdf( m2, "seite2.pdf" )
+    generiere_einzelseiten_als_pdf( m3, "seite3.pdf" )
+    generiere_einzelseiten_als_pdf( m4, "seite4.pdf" )
+    generiere_einzelseiten_als_pdf( m5, "seite5.pdf" )
+    generiere_einzelseiten_als_pdf( m6, "seite6.pdf" )
+    generiere_einzelseiten_als_pdf( m7, "seite7.pdf" )
+    generiere_einzelseiten_als_pdf( m8, "seite8.pdf" )
+
 
 
 """
 Generiert aus der gegebeben 8x4 Matritze eine PDF-Datei
 """
-def generiere_einzelseiten_als_pdf( matritze ):
+def generiere_einzelseiten_als_pdf( matritze, dateiname = "failsafe.pdf" ):
     print("Generiere Einzelseite fuer:")
     print("######################################")
     debug_matritze( matritze )
@@ -234,7 +244,8 @@ def generiere_einzelseiten_als_pdf( matritze ):
 
         
 
-    pdf.output("fotowand.pdf")
+    pdf.output( dateiname )
+
 
 lese_texte_ein()
 lese_kuerzel_ein()
