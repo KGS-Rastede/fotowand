@@ -59,7 +59,7 @@ kann ein beliebiger Text sein.
 def lese_texte_ein():
     beschreibungen = {} # Ein Dictionary 
                         # siehe auch hier:
-                        # https://docs.python.org/3/tutorial/datastructures.html
+                        # https://docs.python.org/3/tutorial/datastructures.html#dictionaries
 
     with open('fotos/texte.csv') as csvfile:
         fototexte = csv.reader(csvfile, delimiter=',')
