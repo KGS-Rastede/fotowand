@@ -238,11 +238,15 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt is not "-FEHLER-" and zellinhalt is not "TEXT FEHLT":
                 #Breite des Textes berechnen
-                w = pdf.get_string_width(zellinhalt) + 6
+                # w = pdf.get_string_width(zellinhalt) + 6
                 # pdf.set_x((210 - w) / 2)
-                pdf.set_xy(x * 60, y * 40)
-                # pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
-                pdf.cell(w, 10, txt=zellinhalt, ln=1, align="C") # C: Center
+                
+                
+                pdf.set_xy(x * 50, y * 45 + 40)
+                # pdf.set_x( x * 50 )
+                # pdf.set_y( y * 45 + 40)
+
+                pdf.cell(50, 10, txt=zellinhalt, ln=1, align="C") # C: Center
                 
                 # ziemlicher Hack, aber funktioniert erstmal...
                 # bild_pfad = "./fotos/" + zellinhalt + ".jpg"
