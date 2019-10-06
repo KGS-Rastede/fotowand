@@ -177,6 +177,22 @@ def generiere_einzelseiten(matritze, bildtexte):
 
 
 
+def erzeuge_bildunterschrift( zellinhalt, beschreibungen ):
+    unterschrift = ""
+
+    # Wenn da nichts drin steht ist das Objekt an dieser
+    # Stelle vom Typ List und kein String. Fuer diesen
+    # Fall muss ich hier einen String setzen, sonst
+    # stuerzt die Software ab. So kann man ausserdem
+    # auch super Fehler finden :-)
+    if not isinstance( zellinhalt, str):
+        unterschrift = "-FEHLER-"
+    else:
+        unterschrift = beschreibungen[ zellinhalt ]
+
+    return unterschrift
+
+
 """
 Generiert aus der gegebeben 8x4 Matritze eine PDF-Datei
 """
@@ -214,18 +230,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
         for zelle in zeile:
             # print("Jetzt kommt eine Zelle ---------: ", zelle)
             
-            zellinhalt = ""
-
-            # Wenn da nichts drin steht ist das Objekt an dieser
-            # Stelle vom Typ List und kein String. Fuer diesen
-            # Fall muss ich hier einen String setzen, sonst
-            # stuerzt die Software ab. So kann man ausserdem
-            # auch super Fehler finden :-)
-            if not isinstance( zelle, str):
-                zellinhalt = "-FEHLER-"
-            else:
-                print("ZELLE MIT FEHLER: ", zelle)
-                zellinhalt = beschreibungen[ zelle ]
+            zellinhalt = erzeuge_bildunterschrift( zelle, beschreibungen )
                   
 
             #pdf.rect(x * 30, y*30, breite, hoehe)
