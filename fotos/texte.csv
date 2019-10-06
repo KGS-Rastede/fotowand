@@ -1,10 +1,10 @@
-aa, Bi/Ch
-ab, Bi/Ch
-abc, Bi/Ch
-acb, Bi/Ch
+aa, Bi/La
+ab, Fr/Sp
+abc, Sp/Bi
+acb, Ma/En
 bcv, Bi/Ch; Fachbereichsleiter NTW
-bro, Bi/Ch
-bst, Bi/Ch
+bro, Sp/Fr
+bst, If/Sn
 dd, Bi/Ch; Direkttorstellvertreter
 df, Bi/Ch
 dfb, Bi/Ch
@@ -21,4 +21,22 @@ kdj, Bi/Ch
 kf, Bi/Ch
 kfu, Bi/Ch; Sekretärin
 ki, Bi/Ch
+ksz, Re/Wn/Ge
 kop, Bi/Ch
+kp, Foo/Bar
+lki, Ch/Bi
+mnb, Ph/Ch
+nhz, Ph/Ch
+ni, Ph/Ch
+oiu, Ph/Ch
+pfb, Ph/Ch
+po, Ph/Ch 
+tb, Ph/Ch 
+tzu, Ph/Ch 
+uhz, Ph/Ch 
+ust, Ph/Ch 
+utr, Ph/Ch 
+vcd, Ph/Ch 
+win, Ph/Ch 
+zug, Ph/Ch 
+zz, Ph/Ch
