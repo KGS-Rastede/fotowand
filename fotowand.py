@@ -178,7 +178,7 @@ def generiere_einzelseiten(matritze, bildtexte):
 
 
 """
-Generiert aus der gegebeben 8x4 Matritze eine PDF-Da, beschreibungen )
+Generiert aus der gegebeben 8x4 Matritze eine PDF-Datei
 """
 def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     # print("Generiere Einzelseite fuer:")
