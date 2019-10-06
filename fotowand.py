@@ -181,12 +181,12 @@ def generiere_einzelseiten(matritze, bildtexte):
 Generiert aus der gegebeben 8x4 Matritze eine PDF-Da, beschreibungen )
 """
 def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
-    print("Generiere Einzelseite fuer:")
-    print("######################################")
-    debug_matritze( matritze )
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    # print("Generiere Einzelseite fuer:")
+    # print("######################################")
+    # debug_matritze( matritze )
+    # print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
-    print(beschreibungen)
+    # print(beschreibungen)
 
     # L = Landscape, P = Portrait
     pdf = FPDF(orientation='L', unit='mm', format='A4')
@@ -221,20 +221,17 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
             # Fall muss ich hier einen String setzen, sonst
             # stuerzt die Software ab. So kann man ausserdem
             # auch super Fehler finden :-)
-            if not isinstance( zellinhalt, str):
+            if not isinstance( zelle, str):
                 zellinhalt = "-FEHLER-"
             else:
-                # Warum auch immer geht das nicht... Wenn ich 
-                # speziell aa und bcv nehme geht es. Spaeter. Erstmal
-                # muss das mit den Bilden und dem Textlayout passen
-                zellinhalt = beschreibungen['aa']
+                print("ZELLE MIT FEHLER: ", zelle)
+                zellinhalt = beschreibungen[ zelle ]
+                  
 
-            # print("Jetzt der Zellinhalt")
-            # print(zelle)
             #pdf.rect(x * 30, y*30, breite, hoehe)
 
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
-            if zellinhalt is not "-FEHLER-":
+            if zellinhalt is not "-FEHLER-" and zellinhalt is not "TEXT FEHLT":
                 #Breite des Textes berechnen
                 w = pdf.get_string_width(zellinhalt) + 6
                 # pdf.set_x((210 - w) / 2)
