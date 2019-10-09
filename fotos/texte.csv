@@ -1,20 +1,20 @@
-aa, Bi/La AA
-ab, Fr/Sp AB
-abc, Sp/Bi ABC
-acb, Ma/En ACB
-asd, Herr Test; Foo/Bar
-bcv, Bi/Ch; Fachbereichsleiter NTW
-bgt, Herr Test; Foo/Bar
+aa, 1 Bi/La AA
+ab, 2 Fr/Sp AB
+abc, 3 Sp/Bi ABC
+acb, 4 Ma/En ACB
+asd, 5 Herr ASD; Foo/Bar
+bcv, 6 Bi/Ch; Fachbereichsleiter NTW
+bgt, 7 Herr BGT; Foo/Bar
 bro, Sp/Fr BRO
-bl,Frau Bo  lduan (GE/EN)
-bst, If/Sn
-cde, Herr Test; Foo/Bar
-cvb, Herr Test; Foo/Bar
-cz,Frau Czapelka (LA/FR)
+bl,Frau BL (GE/EN)
+bst, Frau BST If/Sn
+cde, Herr CDE; Foo/Bar
+cvb, Herr CVB; Foo/Bar
+cz,Frau CZ (LA/FR)
 dd, Heer Doppeld (Bi/Ch; Direkttorstellvertreter)
-df, Bi/Ch
-dfb, Bi/Ch
-dfg, Bi/Ch
+df, Frau Deeff Bi/Ch
+dfb, Frau Deefbe Bi/Ch
+dfg, Herr Deefgeh Bi/Ch
 eks, Herr Test; Foo/Bar
 ert, Herr Test; Foo/Bar
 ewq, Herr Test; Foo/Bar
@@ -23,14 +23,14 @@ fg, Frau Fegeh (Bi/Ch; Schulleiterin)
 fgh, Bi/Ch
 fi,EN/DE
 gg, Bi/Ch
-ght, Herr Test; Foo/Bar
-hd, Bi/Ch
-hi, Bi/Ch
-hkr, Herr Test; Foo/Bar
-hrp, Herr Test; Foo/Bar
-iou, Herr Test; Foo/Bar
-jdz, Bi/Ch; Hausmeister
-jhg, Herr Test; Foo/Bar
+ght,26 Herr Test; Foo/Bar
+hd,27 Bi/Ch
+hi,28 Sekretärin
+hkr,29 Herr Hakaer; Foo/Bar
+hrp,30 Herr Haerpeh; Foo/Bar
+iou,31 Herr Iohuh; Foo/Bar
+jdz,32 Frau Jottdezet Bi/Ch; Hausmeister
+jhg,33 Herr Test; Foo/Bar
 jkl, Bi/Ch
 juh, Bi/Ch
 kdj, Bi/Ch
@@ -46,11 +46,11 @@ ksz, Re/Wn/Ge
 kop, Bi/Ch
 kp, Foo/Bar
 lki, Ch/Bi
-lkj, Herr Test; Foo/Bar
-lpo, Herr Test; Foo/Bar
-mgz, Herr Test; Foo/Bar
-mnb, Ph/Ch
-mnh, Herr Test; Foo/Bar
+lkj,49Herr Test; Foo/Bar
+lpo,50 Herr Test; Foo/Bar
+mgz,51 Herr Test; Foo/Bar
+mnb,52 Ph/Ch
+mnh,53 Herr Test; Foo/Bar
 mst,PO/EN
 ngt, Herr Test; Foo/Bar
 nhz, Ph/Ch
@@ -74,11 +74,11 @@ vfr, Herr Test; Foo/Bar
 vcd, Ph/Ch
 weu,PH/RE (Fachleiter Physik)
 wer, Herr Test; Foo/Bar 
-win, Ph/Ch 
-xdr, Herr Test; Foo/Bar
-xsw, Herr Test; Foo/Bar
-yaq, Herr Test; Foo/Bar
-zhn, Herr Test; Foo/Bar
-ztr, Herr Test; Foo/Bar
-zug, Ph/Ch 
-zz, Ph/Ch
+win,77 Ph/Ch 
+xdr,78 Herr Test; Foo/Bar
+xsw,79 Herr Test; Foo/Bar
+yaq,80 Herr Test; Foo/Bar
+zhn,81 Herr Test; Foo/Bar
+ztr,82 Herr Test; Foo/Bar
+zug,83 Ph/Ch 
+zz,84 Ph/Ch
