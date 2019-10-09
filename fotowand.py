@@ -108,7 +108,7 @@ def erzeuge_matrize():
             aktuelle_spalte = 0
             aktuelle_reihe += 1 #gehe in die naechste Reihe
 
-    debug_matritze(matritze)
+    # debug_matritze(matritze)
 
     return matritze
 
@@ -224,19 +224,14 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     # jetzt geht der Code Zeile fuer Zeile durch die Matritze und 
     # innerhalb der Zeilen die einzelnen Zellen
     for zeile in matritze:
-        print("Jetzt kommt eine Zeile")
-        print(zeile)
-
         for zelle in zeile:
-            # print("Jetzt kommt eine Zelle ---------: ", zelle)
-            
             zellinhalt = erzeuge_bildunterschrift( zelle, beschreibungen )
                   
 
             #pdf.rect(x * 30, y*30, breite, hoehe)
 
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
-            if zellinhalt is not "-FEHLER-" and zellinhalt is not "TEXT FEHLT":
+            if zellinhalt != "-FEHLER-" and zellinhalt != "TEXT FEHLT" and zelle != "":
                 #Breite des Textes berechnen
                 # w = pdf.get_string_width(zellinhalt) + 6
                 # pdf.set_x((210 - w) / 2)
@@ -246,17 +241,23 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 # pdf.set_x( x * 50 )
                 # pdf.set_y( y * 45 + 40)
 
-                pdf.cell(50, 10, txt=zellinhalt, ln=1, align="C") # C: Center
+                pdf.cell(20, 10, txt=zellinhalt, ln=1, align="C") # C: Center
+
+                # print("\n....................................................")
+                # print("Jetzt kommt eine Zeile mit einer Zelle: ", zeile, zelle)
+                # print("....................................................")
+
+
                 
                 # ziemlicher Hack, aber funktioniert erstmal...
-                # bild_pfad = "./fotos/" + zellinhalt + ".jpg"
+                bild_pfad = "./fotos/" + zelle + ".jpg"
 
-                # pdf.image(bild_pfad, x=x*20, y=y * 20, w=100)
-            
+                pdf.image(bild_pfad, x=x*20, y=y * 45, w=20)
+                # pdf.image(image_path, x=10, y=8, w=20)
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
 
-            print( "Werte von x und y sind: ", zellinhalt, x, y)
+            # print( "Werte von x und y sind: ", zellinhalt, x, y)
         
         # Nach jeder Zeile muss die x-Position wieder auf Anfang gesetzt werden
         # y steht fuer die Zeile, dieser Wert muss um 1 erhoeht werden
