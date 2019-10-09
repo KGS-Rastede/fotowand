@@ -209,8 +209,8 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
 
     # 531 x 708 Pixel haben die einzelnen Bilder (Ursache unklar, aber so passt der Druck)
     #Fuer die ersten Probeversuche nehme ich mal ein Zehntel davon
-    breite = 53
-    hoehe = 78
+    breite = 30
+    hoehe = 50
 
     pdf.add_page()
     pdf.set_font("Arial", size=12)
@@ -227,33 +227,21 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
         for zelle in zeile:
             zellinhalt = erzeuge_bildunterschrift( zelle, beschreibungen )
                   
-
-            #pdf.rect(x * 30, y*30, breite, hoehe)
-
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt != "-FEHLER-" and zellinhalt != "TEXT FEHLT" and zelle != "":
-                #Breite des Textes berechnen
-                # w = pdf.get_string_width(zellinhalt) + 6
-                # pdf.set_x((210 - w) / 2)
+                pdf.set_xy(x * 50, y * 45)
+
+                # Drucke Bildunterschrift
+                pdf.cell(x * 50 +0, y*45 +10, txt=zellinhalt, ln=1, align="C") # C: Center
                 
+                # Drucke Umrandung
+                pdf.rect(x * 50 +0, y*45 +10 , 40, 50)
                 
-                pdf.set_xy(x * 50, y * 45 + 40)
-                # pdf.set_x( x * 50 )
-                # pdf.set_y( y * 45 + 40)
-
-                pdf.cell(20, 10, txt=zellinhalt, ln=1, align="C") # C: Center
-
-                # print("\n....................................................")
-                # print("Jetzt kommt eine Zeile mit einer Zelle: ", zeile, zelle)
-                # print("....................................................")
-
-
-                
-                # ziemlicher Hack, aber funktioniert erstmal...
+                # Drucke das Bild
                 bild_pfad = "./fotos/" + zelle + ".jpg"
 
-                pdf.image(bild_pfad, x=x*20, y=y * 45, w=20)
-                # pdf.image(image_path, x=10, y=8, w=20)
+                pdf.image(bild_pfad, x=x*50+10, y=y * 55 +10, w=30)
+                
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
 
