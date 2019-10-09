@@ -232,15 +232,16 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 pdf.set_xy(x * 50, y * 45)
 
                 # Drucke Bildunterschrift
-                pdf.cell(x * 50 +0, y*45 +10, txt=zellinhalt, ln=1, align="C") # C: Center
+                # pdf.cell(x * 50 +0, y*45 +10, txt=zellinhalt, ln=1, align="C") # C: Center
+                pdf.cell(x * 50 +0, y*45 +80, txt="TEST", align="C") # C: Center
                 
                 # Drucke Umrandung
-                pdf.rect(x * 50 +0, y*45 +10 , 40, 50)
+                pdf.rect(x * 50 +5, y*45 +10 , 40, 42)
                 
                 # Drucke das Bild
                 bild_pfad = "./fotos/" + zelle + ".jpg"
 
-                pdf.image(bild_pfad, x=x*50+10, y=y * 55 +10, w=30)
+                pdf.image(bild_pfad, x=x*50+10, y=y * 45 +10, w=30)
                 
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
