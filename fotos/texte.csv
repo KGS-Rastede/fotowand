@@ -1,23 +1,44 @@
-aa, Bi/La
-ab, Fr/Sp
-abc, Sp/Bi
-acb, Ma/En
+aa, Bi/La AA
+ab, Fr/Sp AB
+abc, Sp/Bi ABC
+acb, Ma/En ACB
+asd, Herr Test; Foo/Bar
 bcv, Bi/Ch; Fachbereichsleiter NTW
-bro, Sp/Fr
+bgt, Herr Test; Foo/Bar
+bro, Sp/Fr BRO
+bl,Frau Bo  lduan (GE/EN)
 bst, If/Sn
-dd, Bi/Ch; Direkttorstellvertreter
+cde, Herr Test; Foo/Bar
+cvb, Herr Test; Foo/Bar
+cz,Frau Czapelka (LA/FR)
+dd, Heer Doppeld (Bi/Ch; Direkttorstellvertreter)
 df, Bi/Ch
 dfb, Bi/Ch
 dfg, Bi/Ch
-fg, Bi/Ch; Schulleiter
+eks, Herr Test; Foo/Bar
+ert, Herr Test; Foo/Bar
+ewq, Herr Test; Foo/Bar
+fe,DE/PO
+fg, Frau Fegeh (Bi/Ch; Schulleiterin)
 fgh, Bi/Ch
+fi,EN/DE
 gg, Bi/Ch
+ght, Herr Test; Foo/Bar
 hd, Bi/Ch
 hi, Bi/Ch
+hkr, Herr Test; Foo/Bar
+hrp, Herr Test; Foo/Bar
+iou, Herr Test; Foo/Bar
 jdz, Bi/Ch; Hausmeister
+jhg, Herr Test; Foo/Bar
 jkl, Bi/Ch
 juh, Bi/Ch
 kdj, Bi/Ch
+kje, Herr Test; Foo/Bar
+kji, Herr Test; Foo/Bar
+kju, Herr Test; Foo/Bar
+kjz, Herr Test; Foo/Bar
+kue,MA/CH
 kf, Bi/Ch
 kfu, Bi/Ch; Sekretärin
 ki, Bi/Ch
@@ -25,18 +46,39 @@ ksz, Re/Wn/Ge
 kop, Bi/Ch
 kp, Foo/Bar
 lki, Ch/Bi
+lkj, Herr Test; Foo/Bar
+lpo, Herr Test; Foo/Bar
+mgz, Herr Test; Foo/Bar
 mnb, Ph/Ch
+mnh, Herr Test; Foo/Bar
+mst,PO/EN
+ngt, Herr Test; Foo/Bar
 nhz, Ph/Ch
 ni, Ph/Ch
 oiu, Ph/Ch
+pet,EN/PO
 pfb, Ph/Ch
+pfk, Herr Test; Foo/Bar
 po, Ph/Ch 
+qwe, Herr Test; Foo/Bar
 tb, Ph/Ch 
 tzu, Ph/Ch 
 uhz, Ph/Ch 
 ust, Ph/Ch 
-utr, Ph/Ch 
-vcd, Ph/Ch 
+utr, Ph/Ch
+sc,MU/PO
+sm,DE/GE
+tgb, Herr Test; Foo/Bar
+uio, Herr Test; Foo/Bar
+vfr, Herr Test; Foo/Bar
+vcd, Ph/Ch
+weu,PH/RE (Fachleiter Physik)
+wer, Herr Test; Foo/Bar 
 win, Ph/Ch 
+xdr, Herr Test; Foo/Bar
+xsw, Herr Test; Foo/Bar
+yaq, Herr Test; Foo/Bar
+zhn, Herr Test; Foo/Bar
+ztr, Herr Test; Foo/Bar
 zug, Ph/Ch 
 zz, Ph/Ch
