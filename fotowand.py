@@ -263,11 +263,3 @@ lese_kuerzel_ein()
 
 m = erzeuge_matrize()
 generiere_einzelseiten(m, bildbeschreibungen)
-
-
-
-
-
-# print(kuerzel) # zum Sicherstellen kurz ausgeben, ob alle Dateien ausgelesen wurden
-
-  
