@@ -229,19 +229,29 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                   
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt != "-FEHLER-" and zellinhalt != "TEXT FEHLT" and zelle != "":
-                pdf.set_xy(x * 50, y * 45)
+                pdf.set_xy(x * 50+5, y * 45+40)
 
-                # Drucke Bildunterschrift
-                # pdf.cell(x * 50 +0, y*45 +10, txt=zellinhalt, ln=1, align="C") # C: Center
-                pdf.cell(x * 50 +0, y*45 +80, txt="TEST", align="C") # C: Center
-                
-                # Drucke Umrandung
-                pdf.rect(x * 50 +5, y*45 +10 , 40, 42)
-                
                 # Drucke das Bild
                 bild_pfad = "./fotos/" + zelle + ".jpg"
 
                 pdf.image(bild_pfad, x=x*50+10, y=y * 45 +10, w=30)
+
+                pdf.rect(x * 50 +10, y*45 +40 , 30, 10, 'F')
+
+                # Drucke Bildunterschrift
+                pdf.set_draw_color(0, 80, 180)
+                pdf.set_fill_color(0, 80, 180)
+                pdf.multi_cell(40,5, txt=zellinhalt, align="C") # C: Center
+
+                # Hier die Doku zum Drucken von Mehrzeilen-Text:
+                # https://pyfpdf.readthedocs.io/en/latest/reference/multi_cell/index.html
+                # fpdf.multi_cell(w: float, h: float, txt: str, border = 0, align: str = 'J', fill: bool = False)
+                
+                # Drucke Umrandung
+                pdf.set_line_width(1)
+                pdf.set_draw_color(0, 255, 0)
+                pdf.set_fill_color(0, 255, 0)
+                pdf.rect(x * 50 +5, y*45 +10 , 40, 42)
                 
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
