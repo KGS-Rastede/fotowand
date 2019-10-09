@@ -238,21 +238,23 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
 
                 pdf.rect(x * 50 +10, y*45 +40 , 30, 10, 'F')
 
+                
+                # Drucke Umrandung
+                pdf.set_line_width(1)
+                pdf.set_draw_color(0, 0, 0)
+                pdf.set_fill_color(0, 0, 0)
+                pdf.rect(x * 50 +5, y*45 +10 , 40, 42)
+                
                 # Drucke Bildunterschrift
-                pdf.set_draw_color(0, 80, 180)
-                pdf.set_fill_color(0, 80, 180)
-                pdf.multi_cell(40,5, txt=zellinhalt, align="C") # C: Center
+                pdf.set_draw_color(0, 110, 0)
+                pdf.set_fill_color(0, 110, 0)
+                pdf.multi_cell(40,5, txt=zellinhalt, align="C", fill=1) # C: Center
 
                 # Hier die Doku zum Drucken von Mehrzeilen-Text:
                 # https://pyfpdf.readthedocs.io/en/latest/reference/multi_cell/index.html
                 # fpdf.multi_cell(w: float, h: float, txt: str, border = 0, align: str = 'J', fill: bool = False)
                 
-                # Drucke Umrandung
-                pdf.set_line_width(1)
-                pdf.set_draw_color(0, 255, 0)
-                pdf.set_fill_color(0, 255, 0)
-                pdf.rect(x * 50 +5, y*45 +10 , 40, 42)
-                
+
             # Nach jedem Bild muss die Position um 1 nach rechts korrigiert werden
             x += 1
 
