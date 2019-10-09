@@ -216,7 +216,8 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     pdf.set_font("Arial", size=12)
     # pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
     pdf.set_line_width(1)
-    pdf.set_fill_color(0, 255, 0)
+    pdf.set_draw_color(0, 0, 0)
+    pdf.set_fill_color(0, 0, 0)
     
     x = 0
     y = 0
