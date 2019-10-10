@@ -61,7 +61,7 @@ def lese_texte_ein():
                         # siehe auch hier:
                         # https://docs.python.org/3/tutorial/datastructures.html#dictionaries
 
-    with open('fotos/texte.csv') as csvfile:
+    with open('fotos/texte.csv', encoding='utf-8') as csvfile:
         fototexte = csv.reader(csvfile, delimiter=',')
         for zeile in fototexte:
             # print(zeile[0],zeile[1])
@@ -216,8 +216,11 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     pdf.set_font("Arial", size=12)
     # pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
     pdf.set_line_width(1)
-    pdf.set_draw_color(0, 0, 0)
-    pdf.set_fill_color(0, 0, 0)
+    pdf.set_draw_color(240,240,240)
+    pdf.set_fill_color(240,240,240)
+
+    pdf.rect(0,0 , 300, 300, 'F')
+
     
     x = 0
     y = 0
@@ -232,24 +235,28 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
             if zellinhalt != "-FEHLER-" and zellinhalt != "TEXT FEHLT" and zelle != "":
                 pdf.set_xy(x * 50+5, y * 45+40)
 
+                
+
+
+                
+                # # Drucke Umrandung
+                # pdf.set_line_width(1)
+                # pdf.set_draw_color(188,188,188)
+                # pdf.set_fill_color(188,188,188)
+                # pdf.rect(x * 50 +5, y*45 +10 , 40, 42, style="F")
+                
+
                 # Drucke das Bild
                 bild_pfad = "./fotos/" + zelle + ".jpg"
+                pdf.image(bild_pfad, x=x*50+10, y=y * 45 +10, w=25)
 
-                pdf.image(bild_pfad, x=x*50+10, y=y * 45 +10, w=30)
+                pdf.rect(x * 50 +10, y*45 +40 , 60, 15, 'F')
 
-                pdf.rect(x * 50 +10, y*45 +40 , 30, 10, 'F')
 
-                
-                # Drucke Umrandung
-                pdf.set_line_width(1)
-                pdf.set_draw_color(0, 0, 0)
-                pdf.set_fill_color(0, 0, 0)
-                pdf.rect(x * 50 +5, y*45 +10 , 40, 42)
-                
                 # Drucke Bildunterschrift
-                pdf.set_draw_color(0, 110, 0)
-                pdf.set_fill_color(0, 110, 0)
-                pdf.multi_cell(40,5, txt=zellinhalt, align="C", fill=1) # C: Center
+                pdf.set_draw_color(240,240,240)
+                pdf.set_fill_color(240,240,240)
+                pdf.multi_cell(45,5, txt=zellinhalt, align="L")#, fill=1) # C: Center
 
                 # Hier die Doku zum Drucken von Mehrzeilen-Text:
                 # https://pyfpdf.readthedocs.io/en/latest/reference/multi_cell/index.html
