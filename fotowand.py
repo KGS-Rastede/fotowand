@@ -70,7 +70,7 @@ def lese_texte_ein():
     return beschreibungen
 
 """
-Diese Methode erzeugt im speziellen Fall 8 Matffritzen, die für 8 DIN-A4-Seiten
+Diese Methode erzeugt im speziellen Fall 8 Matritzen, die für 8 DIN-A4-Seiten
 stehen. In einer spaeteren Version kann man das vielleicht verallgemeinern,
 aber erstmal ist es fuer die konkrete Anforderung mit 192 Fotos programmiert.
 """
@@ -113,7 +113,7 @@ def erzeuge_matrize():
     return matritze
 
 """
-Diese Methode gibt einfach nur Zeilenweise eine Matritze aus
+Diese Methode gibt einfach nur zeilenweise eine Matritze aus
 """
 def debug_matritze(matritze):
     for x in matritze:
@@ -176,7 +176,11 @@ def generiere_einzelseiten(matritze, bildtexte):
     generiere_einzelseiten_als_pdf( m8, "seite8.pdf", bildtexte )
 
 
-
+"""
+Gibt als Rueckgabewert die komplette Bildunterschrift zurueck
+Im Falle einer Leerstelle (das sind z.B. die letzten Bilder, die
+es gar nicht gibt), wird als Text "-FEHLER-" eingesetzt.
+"""
 def erzeuge_bildunterschrift( zellinhalt, beschreibungen ):
     unterschrift = ""
 
@@ -207,18 +211,13 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     # L = Landscape, P = Portrait
     pdf = FPDF(orientation='L', unit='mm', format='A4')
 
-    # 531 x 708 Pixel haben die einzelnen Bilder (Ursache unklar, aber so passt der Druck)
-    #Fuer die ersten Probeversuche nehme ich mal ein Zehntel davon
-    breite = 30
-    hoehe = 50
-
     pdf.add_page()
     pdf.set_font("Arial", size=12)
-    # pdf.cell(200, 10, txt="Test der Fotowand", ln=1, align="C") # C: Center
     pdf.set_line_width(1)
     pdf.set_draw_color(240,240,240)
     pdf.set_fill_color(240,240,240)
 
+    # Zeichne den Seitenhintergrund in einer Farbe
     pdf.rect(0,0 , 300, 300, 'F')
 
     
@@ -228,16 +227,13 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     # jetzt geht der Code Zeile fuer Zeile durch die Matritze und 
     # innerhalb der Zeilen die einzelnen Zellen
     for zeile in matritze:
+        # Jetzt die konkrete Zeile mit jeweils 6 Bildern
         for zelle in zeile:
             zellinhalt = erzeuge_bildunterschrift( zelle, beschreibungen )
                   
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt != "-FEHLER-" and zellinhalt != "TEXT FEHLT" and zelle != "":
                 pdf.set_xy(x * 50+5, y * 45+40)
-
-                
-
-
                 
                 # # Drucke Umrandung
                 # pdf.set_line_width(1)
@@ -250,6 +246,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 bild_pfad = "./fotos/" + zelle + ".jpg"
                 pdf.image(bild_pfad, x=x*50+10, y=y * 45 +10, w=25)
 
+                # Hintergrund fuer den Text
                 pdf.rect(x * 50 +10, y*45 +40 , 60, 15, 'F')
 
 
@@ -271,9 +268,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
         # Nach jeder Zeile muss die x-Position wieder auf Anfang gesetzt werden
         # y steht fuer die Zeile, dieser Wert muss um 1 erhoeht werden
         y += 1
-        x = 0
-
-        
+        x = 0  
 
     pdf.output( dateiname )
 
