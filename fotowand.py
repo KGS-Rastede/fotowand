@@ -64,8 +64,8 @@ def lese_texte_ein():
     with open('fotos/texte.csv', encoding='utf-8') as csvfile:
         fototexte = csv.reader(csvfile, delimiter=',')
         for zeile in fototexte:
-            # print(zeile[0],zeile[1])
-            beschreibungen[zeile[1]] = zeile[2]
+            # print(zeile[0],zeile[1]) 
+            beschreibungen[zeile[1]] = zeile[2] + " (" + zeile[1] + ", " + zeile[3] + ")" #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
         print(beschreibungen)
     return beschreibungen
 
@@ -192,8 +192,11 @@ def erzeuge_bildunterschrift( zellinhalt, beschreibungen ):
     if not isinstance( zellinhalt, str):
         unterschrift = "-FEHLER-"
     else:
-        unterschrift = beschreibungen[ zellinhalt ]
-
+        try:
+            unterschrift = beschreibungen[ zellinhalt ]
+        except:
+            print(zellinhalt + " gibts nicht") #wenn es zum Bild keinen passenden Eintrag gibt 
+            pass
     return unterschrift
 
 
