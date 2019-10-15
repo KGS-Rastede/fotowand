@@ -65,8 +65,8 @@ def lese_texte_ein():
         fototexte = csv.reader(csvfile, delimiter=',')
         for zeile in fototexte:
             # print(zeile[0],zeile[1])
-            beschreibungen[zeile[0]] = zeile[1]
-
+            beschreibungen[zeile[1]] = zeile[2]
+        print(beschreibungen)
     return beschreibungen
 
 """
@@ -278,4 +278,5 @@ bildbeschreibungen = lese_texte_ein()
 lese_kuerzel_ein()
 
 m = erzeuge_matrize()
+print(m)
 generiere_einzelseiten(m, bildbeschreibungen)
