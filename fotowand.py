@@ -65,7 +65,7 @@ def lese_texte_ein():
         fototexte = csv.reader(csvfile, delimiter=',')
         for zeile in fototexte:
             # print(zeile[0],zeile[1]) 
-            beschreibungen[zeile[1]] = zeile[0] + zeile[2] + "\n(" + zeile[1] + ", " + zeile[3] + ")" #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
+            beschreibungen[zeile[1]] = zeile[2] + "\n(" + zeile[1] + ", " + zeile[3] + ")" #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
         print(beschreibungen)
     return beschreibungen
 
