@@ -254,8 +254,8 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 pdf.rect(x * 50 +10, y*45 +40 , 60, 15, 'F')
 
 
-                pdf.set_xy(x * 50, y * 45+40)
                 # Drucke Bildunterschrift
+                pdf.set_xy(x * 50, y * 45+40) #Bildunterschrift an die richtige Stelle
                 pdf.set_draw_color(240,240,240)
                 pdf.set_fill_color(240,240,240)
                 pdf.multi_cell(45,5, txt=zellinhalt, align="C")#, fill=1) # C: Center
