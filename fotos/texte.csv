@@ -1,11 +1,11 @@
 1,aa,Frau Aller,Bi/La
 2,ab,Herr Aber,Fr/Sp
 3,abc,Frau Abcde,Sp/Bi
-4,acb,Herr,Ma/En ACB
-5,asd,Frau,"Herr Asdef (ASD, Foo/Bar)"
-6,bcv,Herr,Bi/Ch; Fachbereichsleiter NTW
-7,bgt,Frau,Herr BGT; Foo/Bar
-8,bro,Herr, Sp/Fr BRO
+4,acb,Herr Acab,Ma/En
+5,asd,Frau Asdfg,Foo/Bar
+6,bcv,Herr Bcvds,Bi/Ch; Fachbereichsleiter NTW
+7,bgt,Frau Baugt,Foo/Bar
+8,bro,Herr Brother,Sp/Fr
 9,bl,Frau,Frau BL (GE/EN)
 10,bst,Herr, Frau BST If/Sn
 11,cde,Frau, Herr CDE; Foo/Bar
@@ -24,8 +24,8 @@
 24,fi,Herr,EN/DE
 25,gg,Frau, Bi/Ch
 26,ght,Herr,Herr Test; Foo/Bar
-27,hd,Frau,Bi/Ch
-28,hi,Herr,Sekretärin
+27,hd,Frau Hader,Bi/Ch
+28,hi,Herr Hilpert,Sekretärin
 29,hkr,Frau,29 Herr Hakaer; Foo/Bar
 30,hrp,Herr,Herr Haerpeh; Foo/Bar
 31,iou,Frau,31 Herr Iohuh; Foo/Bar
@@ -76,12 +76,12 @@
 76,vfr,Herr,73Herr Test; Foo/Bar
 77,vcd,Frau,74Ph/Ch
 78,weu,Herr,75PH/RE (Fachleiter Physik)
-79,wer,Frau,76Herr Test; Foo/Bar 
-80,win,Herr,77 Ph/Ch 
-81,xdr,Frau,78 Herr Test; Foo/Bar
-82,xsw,Herr,79 Herr Test; Foo/Bar
-83,yaq,Frau,80 Herr Test; Foo/Bar
-84,zhn,Herr,81 Herr Test; Foo/Bar
-85,ztr,Frau,82 Herr Test; Foo/Bar
-86,zug,Herr,83 Ph/Ch 
-87,zz,Frau,84 Ph/Ch
+79,wer,Frau Werwolf,Foo/Bar 
+80,win,Herr,Ph/Ch 
+81,xdr,Frau Test,Foo/Bar
+82,xsw,Herr Test,Foo/Bar
+83,yaq,Frau Test,Foo/Bar
+84,zhn,Herr Test,Foo/Bar
+85,ztr,Frau Test,Foo/Bar
+86,zug,Herr,Ph/Ch 
+87,zz,Frau,Ph/Ch
