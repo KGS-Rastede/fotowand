@@ -195,7 +195,7 @@ def erzeuge_bildunterschrift( zellinhalt, beschreibungen ):
         try:
             unterschrift = beschreibungen[ zellinhalt ]
         except:
-            print(zellinhalt + " gibts nicht") #wenn es zum Bild keinen passenden Eintrag gibt 
+            print("Es gibt keinen Eintrag zum Bild: " + zellinhalt) #wenn es zum Bild keinen passenden Eintrag gibt 
             pass
     return unterschrift
 
@@ -254,6 +254,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 pdf.rect(x * 50 +10, y*45 +40 , 60, 15, 'F')
 
 
+                pdf.set_xy(x * 50, y * 45+40)
                 # Drucke Bildunterschrift
                 pdf.set_draw_color(240,240,240)
                 pdf.set_fill_color(240,240,240)
@@ -282,5 +283,4 @@ bildbeschreibungen = lese_texte_ein()
 lese_kuerzel_ein()
 
 m = erzeuge_matrize()
-print(m)
 generiere_einzelseiten(m, bildbeschreibungen)
