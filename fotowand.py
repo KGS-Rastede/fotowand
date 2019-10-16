@@ -42,6 +42,8 @@ def lese_kuerzel_ein():
     #Praktischerweise sortiert das Dateisystem die Dateinamen
     #automatisch, so dass wir hier an der Reihenfolge
     #nichts mehr aendern muessen.
+    #Deswegen müssen die Eintraege in der "texte.csv" auch 
+    #nicht in der richtigen Reihenfolge sein.
     with os.scandir("fotos") as it:
         for entry in it:
             # if not entry.name.startswith('.') and entry.is_file():
@@ -65,8 +67,9 @@ def lese_texte_ein():
         fototexte = csv.reader(csvfile, delimiter=',')
         for zeile in fototexte:
             # print(zeile[0],zeile[1]) 
-            beschreibungen[zeile[1]] = zeile[2] + "\n(" + zeile[1] + ", " + zeile[3] + ")" #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
-        print(beschreibungen)
+            beschreibungen[zeile[1]] = zeile[2] + "\n(" + zeile[1] + u', ş' + zeile[3] + ")" #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
+            # https://pyfpdf.readthedocs.io/en/latest/Unicode/index.html
+        # print(beschreibungen)
     return beschreibungen
 
 """
