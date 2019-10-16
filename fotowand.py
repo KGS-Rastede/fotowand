@@ -27,7 +27,10 @@ So kann man zum Beispiel ein Rechteck mit
 erstellen. 
 Und Bilder kann man mit self.image('Dateiname.jpg, 8, 33) einfuegen
 """
- 
+
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+
 import os
 import csv
 
@@ -67,7 +70,7 @@ def lese_texte_ein():
         fototexte = csv.reader(csvfile, delimiter=',')
         for zeile in fototexte:
             # print(zeile[0],zeile[1]) 
-            beschreibungen[zeile[1]] = zeile[2] + "\n(" + zeile[1] + u', ş' + zeile[3] + ")" #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
+            beschreibungen[zeile[1]] = zeile[2] + "\n(" + zeile[1] + ', ' + zeile[3] + ")" #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
             # https://pyfpdf.readthedocs.io/en/latest/Unicode/index.html
         # print(beschreibungen)
     return beschreibungen
@@ -219,7 +222,10 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
 
     pdf.set_auto_page_break(auto=True, margin=0) #WICHTIG!!! sonst wird, wenn in der letzten Zeile zu viel steht ein Seitenumbruch gemacht.
     pdf.add_page()
-    pdf.set_font("Arial", size=12)
+    pdf.add_font('DejaVu', '', r'C:\Windows\Fonts\DejaVuSansCondensed.ttf', uni=True) #https://stackoverflow.com/questions/54679597/why-is-the-font-not-loading-in-pfpd-add-font
+    pdf.set_font('DejaVu', '', size=14)
+    # DejaVu, da in der Textart über 200 Sprachen unterstützt werden und dann 
+    # uni=True, damit Sonderzeichen verwendet werden können
     pdf.set_line_width(1)
     pdf.set_draw_color(240,240,240)
     pdf.set_fill_color(240,240,240)
