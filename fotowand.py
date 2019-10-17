@@ -70,7 +70,7 @@ def lese_texte_ein():
     return beschreibungen
 
 """
-Diese Methode erzeugt im speziellen Fall 8 Matritzen, die für 8 DIN-A4-Seiten
+Diese Methode erzeugt im speziellen Fall 8 Matritzen, die für 8 DIN-A3-Seiten
 stehen. In einer spaeteren Version kann man das vielleicht verallgemeinern,
 aber erstmal ist es fuer die konkrete Anforderung mit 192 Fotos programmiert.
 """
@@ -209,7 +209,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     # print(beschreibungen)
 
     # L = Landscape, P = Portrait
-    pdf = FPDF(orientation='L', unit='mm', format='A4')
+    pdf = FPDF(orientation='L', unit='mm', format='A3')
 
     pdf.add_page()
     pdf.set_font("Arial", size=12)
