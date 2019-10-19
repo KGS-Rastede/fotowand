@@ -152,16 +152,16 @@ def generiere_einzelseiten(matritze, bildtexte):
     for zeile in range(0,4):
         m4.append(matritze[zeile][18:24])      
         
-    for zeile in range(5,8):
+    for zeile in range(4,8):
         m5.append(matritze[zeile][0:6])
 
-    for zeile in range(5,8):
+    for zeile in range(4,8):
         m6.append(matritze[zeile][6:12])        
     
-    for zeile in range(5,8):
+    for zeile in range(4,8):
         m7.append(matritze[zeile][12:18])
 
-    for zeile in range(5,8):
+    for zeile in range(4,8):
         m8.append(matritze[zeile][18:24])   
     
     # Fuer diesen Code gibt es keinen Preis, aber in der ersten
