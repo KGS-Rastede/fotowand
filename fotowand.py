@@ -70,7 +70,7 @@ def lese_texte_ein():
     return beschreibungen
 
 """
-Diese Methode erzeugt im speziellen Fall 8 Matritzen, die für 8 DIN-A4-Seiten
+Diese Methode erzeugt im speziellen Fall 8 Matritzen, die für 8 DIN-A3-Seiten
 stehen. In einer spaeteren Version kann man das vielleicht verallgemeinern,
 aber erstmal ist es fuer die konkrete Anforderung mit 192 Fotos programmiert.
 """
@@ -122,7 +122,7 @@ def debug_matritze(matritze):
 
 """
 Diese Methode erzeugt 8 Matritzen: m1 bis m8. 
-Diese 8 haben jeweils 8x4 Zellen und entsprechen einer DIN-A4-
+Diese 8 haben jeweils 8x4 Zellen und entsprechen einer DIN-A3-
 Seite. Aus diesen einzelnen Seiten werden dann die PDF-Dateien generiert.
 """
 def generiere_einzelseiten(matritze, bildtexte):
@@ -209,13 +209,13 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     # print(beschreibungen)
 
     # L = Landscape, P = Portrait
-    pdf = FPDF(orientation='L', unit='mm', format='A4')
+    pdf = FPDF(orientation='L', unit='mm', format='A3')
 
     pdf.add_page()
     pdf.set_font("Arial", size=12)
     pdf.set_line_width(1)
-    pdf.set_draw_color(240,240,240)
-    pdf.set_fill_color(240,240,240)
+    pdf.set_draw_color(255,255,255)
+    pdf.set_fill_color(255,255,255)
 
     # Zeichne den Seitenhintergrund in einer Farbe
     pdf.rect(0,0 , 300, 300, 'F')
@@ -233,27 +233,29 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                   
             # wenn kein Text vorliegt sollte auch kein Bild gedruckt werden
             if zellinhalt != "-FEHLER-" and zellinhalt != "TEXT FEHLT" and zelle != "":
-                pdf.set_xy(x * 50+5, y * 45+40)
+                pdf.set_xy(x * 70+5, y * 65+40)
                 
                 # # Drucke Umrandung
-                # pdf.set_line_width(1)
-                # pdf.set_draw_color(188,188,188)
+                pdf.set_line_width(1)
+                pdf.set_draw_color(0,0,0)
                 # pdf.set_fill_color(188,188,188)
                 # pdf.rect(x * 50 +5, y*45 +10 , 40, 42, style="F")
+                pdf.rect(x * 70 +5, y*65 +10 , 60, 62)
                 
 
                 # Drucke das Bild
                 bild_pfad = "./fotos/" + zelle + ".jpg"
-                pdf.image(bild_pfad, x=x*50+10, y=y * 45 +10, w=25)
+                pdf.image(bild_pfad, x=x*70+20, y=y * 65 +12, w=32)
 
                 # Hintergrund fuer den Text
-                pdf.rect(x * 50 +10, y*45 +40 , 60, 15, 'F')
+                # pdf.rect(x * 70 +10, y*65 +40 , 60, 15, 'F')
 
 
                 # Drucke Bildunterschrift
-                pdf.set_draw_color(240,240,240)
-                pdf.set_fill_color(240,240,240)
-                pdf.multi_cell(45,5, txt=zellinhalt, align="L")#, fill=1) # C: Center
+                # pdf.set_draw_color(240,240,240)
+                # pdf.set_fill_color(240,240,240)
+                pdf.set_xy(x * 70+5, y * 65+55)
+                pdf.multi_cell(45,5, txt=zellinhalt, align="C")#, fill=1) # C: Center
 
                 # Hier die Doku zum Drucken von Mehrzeilen-Text:
                 # https://pyfpdf.readthedocs.io/en/latest/reference/multi_cell/index.html
