@@ -192,7 +192,11 @@ def erzeuge_bildunterschrift( zellinhalt, beschreibungen ):
     if not isinstance( zellinhalt, str):
         unterschrift = "-FEHLER-"
     else:
-        unterschrift = beschreibungen[ zellinhalt ]
+        try:
+            unterschrift = beschreibungen[ zellinhalt ]
+        except:
+            print(zellinhalt + " gibts nicht") #wenn es zum Bild keinen passenden Eintrag gibt 
+            pass
 
     return unterschrift
 
@@ -210,7 +214,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
 
     # L = Landscape, P = Portrait
     pdf = FPDF(orientation='L', unit='mm', format='A3')
-    
+
     #sonst wird, wenn in der letzten Zeile zu viel steht ein Seitenumbruch gemacht. 
     pdf.set_auto_page_break(auto=True, margin=0) 
     
