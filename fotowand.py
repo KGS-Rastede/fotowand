@@ -210,7 +210,10 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
 
     # L = Landscape, P = Portrait
     pdf = FPDF(orientation='L', unit='mm', format='A3')
-
+    
+    #sonst wird, wenn in der letzten Zeile zu viel steht ein Seitenumbruch gemacht. 
+    pdf.set_auto_page_break(auto=True, margin=0) 
+    
     pdf.add_page()
     #Fuer Kollegen mit ganz speziellen Zeichen im Namen muss man eine 
     #Schriftart nehmen, die das auch untersützt. DejaVu geht auf 
