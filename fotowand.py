@@ -27,7 +27,7 @@ So kann man zum Beispiel ein Rechteck mit
 erstellen. 
 Und Bilder kann man mit self.image('Dateiname.jpg, 8, 33) einfuegen
 """
- 
+
 import os
 import csv
 
@@ -212,7 +212,15 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     pdf = FPDF(orientation='L', unit='mm', format='A3')
 
     pdf.add_page()
-    pdf.set_font("Arial", size=12)
+    #Fuer Kollegen mit ganz speziellen Zeichen im Namen muss man eine 
+    #Schriftart nehmen, die das auch untersützt. DejaVu geht auf 
+    #jeden Fall. Aus Copyrightgruenden lade ich die aber nicht hoch,
+    #man findet die Datei aber überall. Diese muss einfach nur im 
+    #selben Verzeichnis liegen
+    #https://stackoverflow.com/questions/54679597/why-is-the-font-not-loading-in-pfpd-add-font
+
+    pdf.add_font('DejaVu', '', r'DejaVuSans.ttf', uni=True) 
+    pdf.set_font('DejaVu', '', size=14)
     pdf.set_line_width(1)
     pdf.set_draw_color(255,255,255)
     pdf.set_fill_color(255,255,255)
