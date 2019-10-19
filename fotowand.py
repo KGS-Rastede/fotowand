@@ -38,7 +38,16 @@ from fpdf import FPDF
 kuerzel = [] #hier sind alle (bis zu 192) Kuerzel drin.
 
 
-def lese_kuerzel_ein():
+"""
+Diese Methode liest die Kuerzel nach den Bilddateinamen ein. 
+Das funktioniert und hat den Vorteil, dass das Dateisystem die Sortierung 
+macht. Wir wollen aber Kontrolle ueber die Reihenfolge haben, 
+zum Beispiel sollen die Referendare moeglicherweise hinten sein
+oder die Hausmeister vorne. 
+Daher ist diese Methode in dieser Form nicht notwendig. Der Code
+funktioniert aber.
+"""
+def lese_kuerzel_ein_alt():
     #Praktischerweise sortiert das Dateisystem die Dateinamen
     #automatisch, so dass wir hier an der Reihenfolge
     #nichts mehr aendern muessen.
@@ -50,6 +59,18 @@ def lese_kuerzel_ein():
                 dateiname = entry.name.split(".")[0]
                 if not dateiname == "texte":
                     kuerzel.append( dateiname )     
+
+"""
+Diese Methode oeffnet die CSV-Datei und liest sie ein. Dabei wir
+Kuerzel fuer Kuerzel in der Reihenfolge der Datei eingelesen.
+So hat man Kontrolle ueber die Reihenfolge der Bilder.
+"""
+def lese_kuerzel_ein():
+    with open('fotos/texte_neu.csv', encoding='utf-8') as csvfile:
+        fototexte = csv.reader(csvfile, delimiter=';')
+        for zeile in fototexte:
+            # Lies die zweite Spalte, also das Kuerzel, ein
+            kuerzel.append( zeile[1] )     
 
 """
 In dieser Methode werden die Texte aus der .csv-Datei eingelesen.
@@ -64,10 +85,8 @@ def lese_texte_ein():
     with open('fotos/texte_neu.csv', encoding='utf-8') as csvfile:
         fototexte = csv.reader(csvfile, delimiter=';')
         for zeile in fototexte:
-            print(zeile)
             beschreibungen[zeile[1]] = zeile[2] + " " + zeile[3] + " (" + zeile[1].upper() + ")"
-            print(beschreibungen)   
-            #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
+            #[0]=Index, [1]=Kuerzel [2]=Geschlecht [3]=Name+Funktion+Faecher
 
     return beschreibungen
 
