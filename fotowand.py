@@ -61,11 +61,13 @@ def lese_texte_ein():
                         # siehe auch hier:
                         # https://docs.python.org/3/tutorial/datastructures.html#dictionaries
 
-    with open('fotos/texte.csv', encoding='utf-8') as csvfile:
-        fototexte = csv.reader(csvfile, delimiter=',')
+    with open('fotos/texte_neu.csv', encoding='utf-8') as csvfile:
+        fototexte = csv.reader(csvfile, delimiter=';')
         for zeile in fototexte:
-            # print(zeile[0],zeile[1])
-            beschreibungen[zeile[0]] = zeile[1]
+            print(zeile)
+            beschreibungen[zeile[1]] = zeile[2] + " " + zeile[3] + " (" + zeile[1].upper() + ")"
+            print(beschreibungen)   
+            #[0]=Index, [1]=Kuerzel [2]=Name [3]=Faecher
 
     return beschreibungen
 
