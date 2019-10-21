@@ -85,7 +85,7 @@ def lese_texte_ein():
     with open('fotos/texte_neu.csv', encoding='utf-8') as csvfile:
         fototexte = csv.reader(csvfile, delimiter=';')
         for zeile in fototexte:
-            beschreibungen[zeile[1]] = zeile[2] + " " + zeile[3] + " (" + zeile[1].upper() + ")"
+            beschreibungen[zeile[1]] = zeile[2] + " (" + zeile[1].upper() + ")" + "\n" + zeile[3] 
             #[0]=Index, [1]=Kuerzel [2]=Geschlecht [3]=Name+Funktion+Faecher
 
     return beschreibungen
@@ -248,8 +248,8 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
     #https://stackoverflow.com/questions/54679597/why-is-the-font-not-loading-in-pfpd-add-font
 
     pdf.add_font('DejaVu', '', r'DejaVuSans.ttf', uni=True) 
-    pdf.set_font('DejaVu', '', size=14)
-    pdf.set_line_width(1)
+    pdf.set_font('DejaVu', '', size=12)
+    #pdf.set_line_width(1)
     pdf.set_draw_color(255,255,255)
     pdf.set_fill_color(255,255,255)
 
@@ -272,7 +272,7 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 pdf.set_xy(x * 70+5, y * 65+40)
                 
                 # # Drucke Umrandung
-                pdf.set_line_width(1)
+                #pdf.set_line_width(1)
                 pdf.set_draw_color(0,0,0)
                 # pdf.set_fill_color(188,188,188)
                 # pdf.rect(x * 50 +5, y*45 +10 , 40, 42, style="F")
@@ -290,8 +290,8 @@ def generiere_einzelseiten_als_pdf( matritze, dateiname, beschreibungen ):
                 # Drucke Bildunterschrift
                 # pdf.set_draw_color(240,240,240)
                 # pdf.set_fill_color(240,240,240)
-                pdf.set_xy(x * 70+5, y * 65+55)
-                pdf.multi_cell(45,5, txt=zellinhalt, align="C")#, fill=1) # C: Center
+                pdf.set_xy(x * 70+5, y * 65+56)
+                pdf.multi_cell(60,5, txt=zellinhalt, align="C")#, fill=1) # C: Center
 
                 # Hier die Doku zum Drucken von Mehrzeilen-Text:
                 # https://pyfpdf.readthedocs.io/en/latest/reference/multi_cell/index.html
